@@ -1,0 +1,241 @@
+.aboutProject {
+    max-width: 1280px;
+    min-height: 608px;
+}
+
+.aboutProject__title {
+    margin: 110px auto 0;
+    max-width: 1140px;
+    min-height: 27px;
+    padding-bottom: 23px;
+
+    color: #FFFFFF;
+
+    font-weight: 400;
+    font-size: 22px;
+
+    border-bottom: #DADADA 1px solid;
+}
+
+.aboutProject__info {
+    margin: 70px auto 110px;
+    padding: 0;
+    max-width: 1140px;
+    display: flex;
+
+    list-style: none;
+    gap: 40px;
+}
+
+.aboutProject__info-item {
+    max-width: 550px;
+    height: 90px;
+    
+    text-align: left;
+}
+
+.aboutProject__info-title {
+    margin: 0;
+
+    font-weight: 400;
+    font-size: 20px;
+
+    color: #FFFFFF;
+}
+
+.aboutProject__info-text {
+    margin-top: 26px;
+    margin-bottom: 110px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+
+    color: #FFFFFF;
+}
+
+.aboutProject__date {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1140px;
+    min-height: 67px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    list-style: none;
+    text-align: center;
+}
+
+.aboutProject__week {
+    max-width: 228px;
+    width: 100%;
+}
+
+.aboutProject__week-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    min-height: 36px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    background-color: #3DDC84;
+    color: #000000;
+}
+
+.aboutProject__week-subtitle {
+    margin: 0;
+    padding-top: 14px;
+    min-height: 17px;
+    
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #8B8B8B;
+}
+
+.aboutProject__month {
+    max-width: 912px;
+    width: 100%; 
+}
+
+.aboutProject__month-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    min-height: 36px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    background-color: #303030;
+    color: #FFFFFF;
+}
+
+.aboutProject__month-subtitle {
+    margin: 0;
+    padding-top: 14px;
+    min-height: 17px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #8B8B8B;
+}
+
+@media (max-width: 768px) {
+    .aboutProject {
+        max-width: 768px;
+        min-height: 585px;
+    }
+
+    .aboutProject__title {
+        margin: 90px auto 0;
+        max-width: 668px;
+    }
+
+    .aboutProject__info {
+        margin-bottom: 93px;
+        max-width: 668px;
+ 
+        gap: 30px;
+    }
+
+    .aboutProject__info-item {
+        max-width: 319px;
+        height: 124px;
+    }
+
+    .aboutProject__info-text {
+        margin-top: 22px;
+        margin-bottom: 93px;
+    
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutProject__date {
+        max-width: 668px;
+    }
+}
+
+@media (max-width: 320px) {
+    .aboutProject {
+        max-width: 320px;
+        min-height: 641px;
+    }
+
+    .aboutProject__title {
+        margin-top: 70px;
+        max-width: 284px;
+        min-height: 22px;
+        padding-bottom: 28px;
+        font-size: 18px;
+    }
+
+    .aboutProject__info {
+        margin-bottom: 60px;
+        max-width: 284px;
+        flex-direction: column;
+
+        gap: 56px;
+    }
+
+    .aboutProject__info-item {
+        max-width: 284px;
+        height: 108px;
+    }
+
+    .aboutProject__info-title {
+        min-height: 44px;
+        font-size: 18px;
+    }
+
+    .aboutProject__info-text {
+        margin-top: 16px;
+        margin-bottom: 0;
+        min-height: 48px;
+    
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutProject__date {
+        max-width: 284px;
+        min-height: 35px;
+    }
+
+    .aboutProject__week-title {
+        height: 35px;
+        font-size: 11px;
+        line-height: 13px;
+    }
+    
+    .aboutProject__week-subtitle {
+        padding-top: 10px;
+        height: 14px;
+        font-size: 11px;
+        line-height: 14px;
+    }
+    
+    .aboutProject__month-title {
+        height: 35px;
+        font-size: 11px;
+        line-height: 13px;
+    }
+    
+    .aboutProject__month-subtitle {
+        height: 14px;
+        font-size: 11px;
+        line-height: 14px;
+    }
+}
