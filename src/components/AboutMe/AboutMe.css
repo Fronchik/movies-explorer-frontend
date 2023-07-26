@@ -158,6 +158,7 @@
     
     .aboutMe__info {
         max-width: 292px;
+        min-height: 301px;
         grid-row: 2;
     }
     
