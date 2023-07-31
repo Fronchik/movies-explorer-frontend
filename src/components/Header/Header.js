@@ -1,7 +1,6 @@
 import headerLogo from '../../images/logo.svg';
 import React from 'react';
 import './Header.css';
-// import { Link, Routes, Route } from 'react-router-dom';
 
 function Header({ email, loggedIn, onSignOut }) {
     return (
