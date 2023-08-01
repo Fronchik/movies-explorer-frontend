@@ -30,7 +30,7 @@ function Register({ onRegister }) {
                         <button className="popup__save" aria-label="Кнопка входа" type="submit">Зарегистрироваться</button>
                         <Link to="/sign-in" className="popup__check" aria-label="Кнопка входа" type="submit">
                             <span className="popup__text">Уже зарегистрированы?</span>
-                            <span className="popup__enter"> Войти</span>
+                            <span className="popup__enter">Войти</span>
                         </Link>
                     </div>
                 </form>

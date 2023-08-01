@@ -1,0 +1,151 @@
+.popup-profile__content {
+    max-width: 410px;
+    min-height: 482px;
+    margin-top: 59px;
+    width: 100%;
+    text-align: center;
+}
+
+.popup-profile__title {
+    max-width: 204px;
+    min-height: 29px;
+    margin: 0 auto 123px;
+  
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #FFFFFF;
+}
+
+.popup-profile__form {
+    display: flex;
+    min-height: 330px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.popup-profile__info {
+    display: flex;
+    min-height: 14px;
+}
+
+.popup-profile__label {
+    position: absolute;
+    display: inline; 
+    max-width: 410px;
+    min-height: 14px;
+    text-align: left;
+
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 14px;
+
+    color: #FFFFFF;
+}
+
+.popup-profile__input {
+    min-height: 14px;
+    width: 100%;
+    padding: 0;
+    text-align: right;
+
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 14px;
+
+    color: #FFFFFF;
+    background-color: #202020;
+    border: none;
+}
+
+.popup-profile__line {
+    margin: 16px 0;
+    max-width: 410px;
+    border: 1px #424242 solid;
+}
+
+.popup-profile__save {
+    min-height: 16px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  
+    border: none;
+  
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+  
+    background-color: #202020;
+  
+    cursor: pointer;
+}
+
+.popup-profile__exit {
+    min-height: 16px;
+    width: 100%;
+    margin: 16px auto 0;
+    padding: 0;
+  
+    color: #EE3465;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    text-decoration: none;
+  
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .popup-profile__content {
+        min-height: 445px;
+        margin-top: 236px;
+    }
+
+    .popup-profile__title {
+        margin-bottom: 96px;
+    }
+
+    .popup-profile__form {
+        min-height: 320px;
+    }
+
+    .popup-profile__line {
+        margin-bottom: 17px;
+    }
+}
+
+@media (max-width: 560px) {
+    .popup-profile__content {
+        max-width: 260px;
+        min-height: 596px;
+        margin-top: 70px;
+    }
+
+    .popup-profile__title {
+        margin-bottom: 80px;
+    }
+
+    .popup-profile__form {
+        min-height: 487px;
+    }
+
+    .popup-profile__line {
+        max-width: 260px;
+    }
+
+    .popup-profile__save {
+        min-height: 15px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .popup-profile__exit {
+        min-height: 15px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

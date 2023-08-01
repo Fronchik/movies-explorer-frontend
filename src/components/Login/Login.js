@@ -28,7 +28,7 @@ function Login({ onLogin }) {
                         <button className="popup__save" aria-label="Кнопка входа" type="submit">Войти</button>
                         <Link to="/sign-up" className="popup__check" aria-label="Кнопка регистрации" type="submit">
                             <span className="popup__text">Уже зарегистрированы?</span>
-                            <span className="popup__enter"> Войти</span>
+                            <span className="popup__enter">Войти</span>
                         </Link>
                     </div>
                 </form>
