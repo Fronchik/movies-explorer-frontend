@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
+import Error from '../Error/Error';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         {/* написать  /sign-in или /signin ?*/}
         <Route path="/sign-in" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/error" element={<Error />} />
       </Routes>
 
     </div>
