@@ -1,7 +1,7 @@
 import React from 'react';
 import './MoviesCard.css';
 
-function MoviesCard({ }) {
+function MoviesCard() {
 
     return (
         <section className="profile1">

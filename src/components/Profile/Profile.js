@@ -6,10 +6,10 @@ import Header from '../Header/Header';
 function Profile({ onLogin }) {
     const emailRef = React.useRef();
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        onLogin(emailRef.current.value);
-    }
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+    //     onLogin(emailRef.current.value);
+    // }
 
     return (
         <>

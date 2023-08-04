@@ -1,0 +1,148 @@
+.searchForm {
+    margin: 0 auto;
+    max-width: 1140px;
+    min-height: 212px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px #424242 solid;
+}
+.searchForm__container {
+    margin-top: 80px;
+    max-width: 932px;
+    height: 48px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.searchForm__input {
+    max-width: 932px;
+    min-height: 48px;
+    width: 100%;
+    padding: 0;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    background-color: #202020;
+    border: #424242 1.5px solid;
+    border-radius: 50px;
+}
+
+input::placeholder {
+    padding-left: 22px;
+}
+
+.searchForm__find {
+    width: 34px;
+    height: 34px;
+    margin: 7px;
+    padding: 0;
+    position: absolute;
+    background-color: #202020;
+    border: none;
+}
+
+.searchForm__filter {
+    max-width: 167px;
+    min-height: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchForm__filter-title {
+    color: #FFFFFF;
+
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.switch {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    max-width: 36px;
+    height: 20px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.switch.on {
+    background: #3DDC84;
+}
+
+/* .switch.on .switch-toggle {
+    left: 19px;
+} */
+
+.switch-toggle {
+    width: 16px;
+    height: 16px;
+    left: 0;
+    border-radius: 12px;
+    background: #FFFFFF;
+    position: relative;
+    transition: left .2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .searchForm {
+        max-width: 708px;
+        min-height: 222px;
+        flex-direction: column;
+    }
+    .searchForm__container {
+        margin-top: 60px;
+        max-width: 708px;
+    }
+    
+    .searchForm__input {
+        max-width: 708px;
+    }
+
+    input::placeholder {
+        padding-left: 18px;
+    }
+    
+    .searchForm__filter {
+        max-width: 708px;
+        margin: 38px auto 57px;
+        justify-content: center;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 320px) {
+    .searchForm {
+        max-width: 292px;
+        min-height: 216px;
+    }
+    .searchForm__container {
+        max-width: 292px;
+    }
+    
+    .searchForm__input {
+        max-width: 300px;
+        font-size: 11px;
+    }
+
+    input::placeholder {
+        padding-left: 26px;
+    }
+    
+    .searchForm__filter {
+        max-width: 292px;
+        min-height: 18px;
+        margin-top: 45px;
+        margin-bottom: 44px;
+        gap: 13px;
+    }
+}
