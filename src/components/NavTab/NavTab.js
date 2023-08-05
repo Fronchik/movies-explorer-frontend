@@ -6,9 +6,9 @@ function NavTab() {
         <section className="navTab">
             <h1 className="navTab__title">Учебный проект студента факультета Веб-разработки.</h1>
             <div className="navTab__buttons">
-                <button className="navTab__button" aria-label="Кнопка о проекте" type="button">О проекте</button>
-                <button className="navTab__button" aria-label="Кнопка технологии" type="button">Технологии</button>
-                <button className="navTab__button" aria-label="Кнопка студент" type="button">Студент</button>
+                <a href="#project" className="navTab__button" aria-label="Кнопка о проекте">О проекте</a>
+                <a href="#techs" className="navTab__button" aria-label="Кнопка технологии">Технологии</a>
+                <a href="#student" className="navTab__button" aria-label="Кнопка студент">Студент</a>
             </div>
         </section>
     );

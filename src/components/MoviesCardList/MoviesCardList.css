@@ -1,0 +1,52 @@
+.movies {
+    margin: 0 auto;
+    max-width: 1280x;
+}
+
+.movies__more {
+    margin: 0 auto;
+    max-width: 320px;
+    min-height: 166px;
+    width: 100%;
+}
+
+.movies__button {
+    margin: 50px auto 80px;
+    padding: 0;
+    width: 320px;
+    height: 36px;
+    width: 100%;
+
+    color: #FFFFFF;
+    background-color: #2F2F2F;
+    border: none;
+    border-radius: 6px;
+
+    text-align: center;
+
+    cursor: pointer;
+   
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+@media (max-width: 768px) {
+    .movies {
+        max-width: 768px;
+    }
+}
+
+@media (max-width: 560px) {
+    .movies {
+        max-width: 320px;
+    }
+
+    .movies__more {
+        max-width: 240px;
+    }
+    
+    .movies__button {
+        width: 240px;
+    }
+}
