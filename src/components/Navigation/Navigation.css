@@ -1,0 +1,27 @@
+.navigation {
+    max-width: 520px;
+    min-height: 1024px;
+    margin: 159px auto 0;
+}
+
+.navigation__button {
+    max-width: 22px;
+    min-height: 22px;
+}
+
+.navigation__links {
+    display: flex;
+    max-width: 340px;
+    min-height: 122px;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.navigation__link {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #FFFFFF;
+}

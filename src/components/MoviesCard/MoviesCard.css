@@ -1,5 +1,5 @@
 .card {
-    margin: 0 auto;
+    margin: 40px auto 0;
     max-width: 1140px;
     min-height: 134px;
     display: flex;
@@ -34,9 +34,27 @@
 }
 
 .card__like {
-    max-width: 14px;
-    min-height: 12px;
+    width: 14px;
+    height: 12px;
+    padding: 0;
+
+    background-image: url(../../images/like.svg);
+    background-repeat: no-repeat;
+    background-color: #2F2F2F;
+  
+    border: none;
+  
+    cursor: pointer;
 }
+
+.card__like:hover {
+    opacity: 60%;
+    transition: 1s;
+  }
+
+.card__like_active {
+    background-image: url(../../images/likeRed.svg);
+  } 
 
 .card__image {
     margin: 6px;
@@ -52,13 +70,13 @@
 
 @media (max-width: 560px) {
     .card {
+        margin-top: 20px;
         max-width: 300px;
         min-height: 232px;
         flex-direction: column-reverse;
     }
     
     .card__description {
-        /* display: flex; */
         margin: 14px auto 14px 12px;
         max-width: 228px;
         width: 100%;

@@ -5,7 +5,7 @@ import './SearchForm.css';
 function SearchForm() {
 
     return (
-        <section className="searchForm">
+        <section id="movies" className="searchForm">
             <div className="searchForm__container">
                 <input id="user-input" className="searchForm__input" name="user-input" type="text" placeholder="Фильм" />
                 <button id="search-btn" className="searchForm__find" aria-label="Кнопка поиска" type="submit">

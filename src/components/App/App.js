@@ -5,6 +5,7 @@ import './App.css';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
+import Navigation from '../Navigation/Navigation';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signin" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/error" element={<Error />} />
+        <Route path="/navigation" element={<Navigation />} />
       </Routes>
 
     </div>
