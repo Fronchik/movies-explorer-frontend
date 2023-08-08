@@ -22,7 +22,7 @@
     max-width: 932px;
     min-height: 48px;
     width: 100%;
-    padding: 0;
+    padding: 0 0 0 22px;
 
     font-weight: 400;
     font-size: 14px;
@@ -32,10 +32,6 @@
     background-color: #202020;
     border: #424242 1.5px solid;
     border-radius: 50px;
-}
-
-input::placeholder {
-    padding-left: 22px;
 }
 
 .searchForm__find {
@@ -100,6 +96,7 @@ input::placeholder {
         min-height: 222px;
         flex-direction: column;
     }
+
     .searchForm__container {
         margin-top: 60px;
         max-width: 708px;
@@ -107,9 +104,6 @@ input::placeholder {
     
     .searchForm__input {
         max-width: 708px;
-    }
-
-    input::placeholder {
         padding-left: 18px;
     }
     
@@ -126,6 +120,7 @@ input::placeholder {
         max-width: 292px;
         min-height: 216px;
     }
+    
     .searchForm__container {
         max-width: 292px;
     }
@@ -133,9 +128,6 @@ input::placeholder {
     .searchForm__input {
         max-width: 300px;
         font-size: 11px;
-    }
-
-    input::placeholder {
         padding-left: 26px;
     }
     

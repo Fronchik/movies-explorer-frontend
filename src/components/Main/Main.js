@@ -12,7 +12,7 @@ function Main() {
 
     return (
         <>
-            <Header />
+            <Header loggedIn={false} />
             <NavTab />
             <AboutProject />
             <Techs />

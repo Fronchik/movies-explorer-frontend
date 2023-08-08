@@ -13,7 +13,7 @@ function Profile({ onLogin }) {
 
     return (
         <>
-            <Header />
+            <Header loggedIn={true} />
             <section className="popup">
                 <div className="popup-profile__content">
                     <h2 className="popup-profile__title">Привет, Виталий!</h2>
