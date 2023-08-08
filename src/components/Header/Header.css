@@ -102,6 +102,11 @@ a:link, a:visited {
     display: none;
 }
 
+.header__navigation-close {
+    background-color: #202020;
+    border: none;
+}
+
 @media (max-width: 768px) {
     .header {
         max-width: 768px;

@@ -1,19 +1,27 @@
 .navigation {
-    max-width: 768px;
+    max-width: 520px;
     min-height: 1024px;
+    /* height: 100%; */
     width: 100%;
-    margin: 0 auto;
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
 }
 
 .navigation__content {
     max-width: 520px;
     width: 100%;
-    position: absolute;
-    right: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    color: #202020; 
+    background-color: black;  
+}
+
+.navigation__btn-close {
+    background-color: black; 
+    border: none;
 }
 
 .navigation__close {
@@ -44,6 +52,10 @@
 
 .navigation__profile {
     margin: 621px auto 90px;
+}
+
+.header__profile-on {
+  display: inline;
 }
 
 @media (max-width: 320px) {
