@@ -3,13 +3,8 @@ import { Link } from 'react-router-dom';
 import './Profile.css';
 import Header from '../Header/Header';
 
-function Profile({ onLogin }) {
+function Profile() {
     const emailRef = React.useRef();
-
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     onLogin(emailRef.current.value);
-    // }
 
     return (
         <>
@@ -31,7 +26,7 @@ function Profile({ onLogin }) {
                         </div>
                         <div className="popup__button">
                             <button className="popup-profile__save" aria-label="Кнопка редактировать" type="submit">Редактировать</button>
-                            <Link to="/" className="popup-profile__exit" aria-label="Кнопка выхода" type="submit">Выйти из аккаунта</Link>
+                            <Link to="/" className="popup-profile__exit" aria-label="Кнопка выхода">Выйти из аккаунта</Link>
                         </div>
                     </form>
                 </div>

@@ -50,14 +50,20 @@
     text-decoration: none;
 }
 
-@media (max-width: 768px) {
+.navTab__button:hover {
+    opacity: 0.7;
+    transition: 1s;
+}
+
+@media (max-width: 1220px) {
     .navTab {
         max-width: 728px;
         min-height: 834px;
     }
 
     .navTab__title {
-        margin: 350px auto 314px;
+        margin-top: 350px;
+        margin-bottom: 314px;
         max-width: 680px;
         min-height: 104px;
     
@@ -70,7 +76,13 @@
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 750px) {
+    .navTab {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 560px) {
     .navTab {
         max-width: 292px;
         min-height: 586px;

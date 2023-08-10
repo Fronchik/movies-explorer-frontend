@@ -34,6 +34,11 @@
     border-radius: 50px;
 }
 
+.searchForm__input:hover {
+    cursor: pointer;
+    transition: 1s;
+  }
+
 .searchForm__find {
     width: 34px;
     height: 34px;
@@ -42,6 +47,12 @@
     position: absolute;
     background-color: #202020;
     border: none;
+    cursor: pointer;
+}
+
+.searchForm__find:hover {
+    opacity: 0.8;
+    transition: 1s;
 }
 
 .searchForm__filter {
@@ -90,7 +101,7 @@
     transition: left .2s ease-in-out;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .searchForm {
         max-width: 708px;
         min-height: 222px;
@@ -115,7 +126,7 @@
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 720px) {
     .searchForm {
         max-width: 292px;
         min-height: 216px;

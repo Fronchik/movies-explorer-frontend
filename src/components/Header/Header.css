@@ -12,6 +12,11 @@
     margin: 18px auto 18px 70px;
 }
 
+.header__logo:hover {
+    opacity: 0.7;
+    transition: 1s;
+}
+
 .header__movies {
     margin: auto;
     display: flex;
@@ -28,12 +33,22 @@
     color: #FFFFFF;
 }
 
+.header__link-movies:hover {
+    opacity: 0.7;
+    transition: 1s;
+}
+
 .header__link-saved-movies {
     max-width: 142px;
     font-weight: 400;
     font-size: 13px;
     line-height: 18px;
     color: #FFFFFF;
+}
+
+.header__link-saved-movies:hover {
+    opacity: 0.7;
+    transition: 1s;
 }
 
 a:link, a:visited {
@@ -64,6 +79,11 @@ a:link, a:visited {
     cursor: pointer;
 }
 
+.header__button:hover {
+    opacity: 0.8;
+    transition: 1s;
+}
+
 .header__button-green {
     width: 76px;
     height: 32px;
@@ -73,8 +93,17 @@ a:link, a:visited {
     color: #FFFFFF;
     border: none;
     border-radius: 3px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     cursor: pointer;
+}
+
+.header__button-green:hover {
+    opacity: 0.8;
+    transition: 1s;
 }
 
 .header__profile {
@@ -96,6 +125,11 @@ a:link, a:visited {
     justify-content: center;
     align-items: center;
     gap: 7px;
+}
+
+.header__profile:hover {
+    opacity: 0.8;
+    transition: 1s;
 }
 
 .header__navigation {
@@ -137,6 +171,11 @@ a:link, a:visited {
         max-width: 44px;
         min-height: 44px;
         margin: 15px 30px 0 auto;
+    }
+
+    .header__navigation:hover {
+        opacity: 0.8;
+        transition: 1s;
     }
 }
 

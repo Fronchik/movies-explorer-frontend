@@ -1,6 +1,7 @@
 .aboutProject {
     max-width: 1280px;
     min-height: 608px;
+    margin: 0 auto;
 }
 
 .aboutProject__title {
@@ -132,7 +133,7 @@
     color: #8B8B8B;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .aboutProject {
         max-width: 768px;
         min-height: 585px;
@@ -168,7 +169,13 @@
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 750px) {
+    .aboutProject {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 560px) {
     .aboutProject {
         max-width: 320px;
         min-height: 641px;

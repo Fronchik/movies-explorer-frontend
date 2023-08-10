@@ -1,6 +1,7 @@
 import React from 'react';
 import './SavedMovies.css';
 import Header from '../Header/Header';
+import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import film from '../../images/pic__COLOR_pic.jpg';
@@ -30,7 +31,10 @@ function SavedMovies() {
     return (
         <>
             <Header loggedIn={true} />
-            <MoviesCardList cards={cardList} desplayMoreButton={false} cardLike={false} />
+            <main>
+                <SearchForm />
+                <MoviesCardList cards={cardList} desplayMoreButton={false} isFavourites={true} />
+            </main>
             <Footer />
         </>
     );

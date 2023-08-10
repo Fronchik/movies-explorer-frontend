@@ -20,10 +20,12 @@ function Register() {
                     </div>
                     <div className="popup__button">
                         <button className="popup__save" aria-label="Кнопка входа" type="submit">Зарегистрироваться</button>
-                        <Link to="/signin" className="popup__check" aria-label="Кнопка входа" type="submit">
+                        <div className="popup__span">
                             <span className="popup__text">Уже зарегистрированы?</span>
-                            <span className="popup__enter">Войти</span>
-                        </Link>
+                            <Link to="/signin" aria-label="Кнопка входа">
+                                <span className="popup__enter">Войти</span>
+                            </Link>
+                        </div>
                     </div>
                 </form>
             </div>

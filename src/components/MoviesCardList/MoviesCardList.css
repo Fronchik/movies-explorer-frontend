@@ -37,6 +37,11 @@
     line-height: 16px;
 }
 
+.movies__button:hover {
+    opacity: 0.8;
+    transition: 1s;
+}
+
 @media (max-width: 768px) {
     .movies {
         max-width: 768px;

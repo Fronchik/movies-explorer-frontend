@@ -83,6 +83,11 @@
     cursor: pointer;
 }
 
+.popup-profile__save:hover {
+    opacity: 0.8;
+    transition: 1s;
+}
+
 .popup-profile__exit {
     min-height: 16px;
     width: 100%;
@@ -97,6 +102,11 @@
     text-decoration: none;
   
     cursor: pointer;
+}
+
+.popup-profile__exit:hover {
+    opacity: 0.8;
+    transition: 1s;
 }
 
 @media (max-width: 768px) {

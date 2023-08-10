@@ -26,10 +26,12 @@ function Login({ onLogin }) {
                     </div>
                     <div className="popup__button">
                         <button className="popup__save" aria-label="Кнопка входа" type="submit">Войти</button>
-                        <Link to="/signup" className="popup__check" aria-label="Кнопка регистрации" type="submit">
-                            <span className="popup__text">Уже зарегистрированы?</span>
-                            <span className="popup__enter">Войти</span>
-                        </Link>
+                        <div className="popup__span">
+                            <span className="popup__text">Еще не зарегистрированы?</span>
+                            <Link to="/signup" aria-label="Кнопка регистрации">
+                                <span className="popup__enter">Регистрация</span>
+                            </Link>
+                        </div>
                     </div>
                 </form>
             </div>

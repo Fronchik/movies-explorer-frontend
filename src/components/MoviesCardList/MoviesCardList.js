@@ -2,11 +2,11 @@ import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ cards, desplayMoreButton }) {
+function MoviesCardList({ cards, desplayMoreButton, isFavourites }) {
     return (
         <section className="movies">
             <ul className="movies__cards">
-                {cards.map(card => <MoviesCard key={card.id} {...card} />)}
+                {cards.map(card => <MoviesCard key={card.id} {...card} isFavourites={isFavourites} />)}
             </ul>
             {desplayMoreButton &&
                 <div className="movies__more">

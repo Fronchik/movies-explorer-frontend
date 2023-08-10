@@ -12,7 +12,7 @@ function Header({ email, loggedIn, onSignOut }) {
     return (
         <>
             <header className="header">
-                <Link to="/" aria-label="Логотип" type="submit">
+                <Link to="/" aria-label="Логотип">
                     <img src={headerLogo} alt="Логотип" className="header__logo" />
                 </Link>
                 {loggedIn &&
@@ -28,23 +28,15 @@ function Header({ email, loggedIn, onSignOut }) {
                 <div className="header__buttons">
                     {!loggedIn ?
                         <>
-                            <Link to="/signup" aria-label="Кнопка регистрации">
-                                <button className="header__button" aria-label="Кнопка регистрации" type="button">
-                                    Регистрация
-                                </button>
+                            <Link to="/signup" aria-label="Кнопка регистрации" className="header__button">Регистрация
                             </Link>
-                            <Link to="/signin" aria-label="Кнопка войти">
-                                <button className="header__button-green" aria-label="Кнопка войти" type="button">
-                                    Войти
-                                </button>
+                            <Link to="/signin" aria-label="Кнопка войти" className="header__button-green">Войти
                             </Link>
                         </>
                         :
-                        <Link to="/profile" aria-label="Кнопка аккаунта">
-                            <button className="header__profile" aria-label="Кнопка аккаунта" type="button">
-                                <img src={profile} alt="Профиль" />
-                                Аккаунт
-                            </button>
+                        <Link to="/profile" aria-label="Кнопка аккаунта" className="header__profile">
+                            <img src={profile} alt="Профиль" />
+                            Аккаунт
                         </Link>
                     }
                 </div>
