@@ -16,7 +16,7 @@ function Register() {
                         <label className="popup__label">E-mail</label>
                         <input id="email" className="popup__input" name="login" type="text" placeholder="Email" required value="pochta@yandex.ru" />
                         <label className="popup__label">Пароль</label>
-                        <input id="password" className="popup__input_password" name="password" type="password" required />
+                        <input id="password" className="popup__input popup__input_password" name="password" type="password" required />
                     </div>
                     <div className="popup__button">
                         <button className="popup__save" aria-label="Кнопка входа" type="submit">Зарегистрироваться</button>

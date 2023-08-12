@@ -79,6 +79,24 @@
 }
 
 @media (max-width: 1200px) {
+    .techs__title {
+        max-width: 1020px;
+    }
+}
+
+@media (max-width: 1030px) {
+    .techs__title {
+        max-width: 830px;
+    }
+}
+
+@media (max-width: 850px) {    
+    .techs__title {
+        max-width: 780px;
+    }
+}
+
+@media (max-width: 790px) {
     .techs {
         max-width: 768px;
         min-height: 567px;
@@ -114,7 +132,37 @@
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 700px) {    
+    .techs__title {
+        max-width: 600px;
+    }
+
+    .techs__info-item {
+        min-width: 70px;
+    }
+}
+
+@media (max-width: 620px) {    
+    .techs__title {
+        max-width: 500px;
+    }
+
+    .techs__info-item {
+        min-width: 60px;
+    }
+}
+
+@media (max-width: 510px) {    
+    .techs__title {
+        max-width: 400px;
+    }
+
+    .techs__info-item {
+        min-width: 40px;
+    }
+}
+
+@media (max-width: 450px) {
     .techs {
         max-width: 320px;
         min-height: 651px;

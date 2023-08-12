@@ -56,15 +56,33 @@
     transition: 1s;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1220px) {
+    .footer {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1030px) {
+    .footer {
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 830px) {
+    .footer {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
     .footer {
         max-width: 668px;
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 720px) {
     .footer {
-        max-width: 292px;
+        max-width: 540px;
         min-height: 253px;
     }
     
@@ -92,5 +110,11 @@
         max-width: 200px;
         align-items: center;
         gap: 12px;
+    }
+}
+
+@media (max-width: 560px) {
+    .footer {
+        max-width: 292px;
     }
 }

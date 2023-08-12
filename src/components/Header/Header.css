@@ -84,7 +84,7 @@ a:link, a:visited {
     transition: 1s;
 }
 
-.header__button-green {
+.header__button_green {
     width: 76px;
     height: 32px;
     padding: 0;
@@ -101,7 +101,7 @@ a:link, a:visited {
     cursor: pointer;
 }
 
-.header__button-green:hover {
+.header__button_green:hover {
     opacity: 0.8;
     transition: 1s;
 }
@@ -200,7 +200,7 @@ a:link, a:visited {
         width: 64px;
     }
 
-    .header__button-green {
+    .header__button_green {
         width: 54px;
         height: 26px;
     }

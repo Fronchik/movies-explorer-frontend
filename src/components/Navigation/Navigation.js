@@ -8,7 +8,7 @@ function Navigation({ onClose }) {
     return (
         <section className="navigation">
             <div className="navigation__content">
-                <button aria-label="Закрыть" onClick={onClose} className="navigation__btn_close">
+                <button aria-label="Закрыть" onClick={onClose} className="navigation__button">
                     <img src={close} alt="Закрыть" className="navigation__close" />
                 </button>
                 <div className="navigation__links">
@@ -22,9 +22,9 @@ function Navigation({ onClose }) {
                         Сохранённые фильмы
                     </Link>
                 </div>
-                <div className="header__bottom">
+                <div className="navigation__bottom">
                     <Link to="/profile" aria-label="Кнопка аккаунта" className="navigation__profile">
-                        <button className="header__profile header__profile-on" aria-label="Кнопка аккаунта" type="button">
+                        <button className="navigation__account" aria-label="Кнопка аккаунта" type="button">
                             <img src={profile} alt="Профиль" />
                             Аккаунт
                         </button>

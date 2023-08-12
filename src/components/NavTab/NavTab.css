@@ -57,6 +57,18 @@
 
 @media (max-width: 1220px) {
     .navTab {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1020px) {
+    .navTab {
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 820px) {
+    .navTab {
         max-width: 728px;
         min-height: 834px;
     }

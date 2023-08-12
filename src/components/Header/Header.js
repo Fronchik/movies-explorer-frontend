@@ -30,7 +30,7 @@ function Header({ email, loggedIn, onSignOut }) {
                         <>
                             <Link to="/signup" aria-label="Кнопка регистрации" className="header__button">Регистрация
                             </Link>
-                            <Link to="/signin" aria-label="Кнопка войти" className="header__button-green">Войти
+                            <Link to="/signin" aria-label="Кнопка войти" className="header__button header__button_green">Войти
                             </Link>
                         </>
                         :
