@@ -2,11 +2,10 @@ import React from 'react';
 import './SearchForm.css';
 import find from '../../images/find.svg';
 
-function SearchForm({ shortOnly, query, onQueryChange, onShortOnlyChange, onSubmit }) {
+function SearchForm({ query, onQueryChange, shortOnly, onShortOnlyChange, onSubmit }) {
 
     const handleShortChange = () => {
         onShortOnlyChange(!shortOnly);
-        onSubmit();
     }
 
     const handleQueryChange = (e) => {

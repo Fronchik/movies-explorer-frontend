@@ -33,7 +33,7 @@ function SavedMovies() {
             <Header loggedIn={true} />
             <main>
                 <SearchForm />
-                <MoviesCardList cards={cardList} desplayMoreButton={false} isFavourites={true} />
+                <MoviesCardList cards={cardList} isFavourites={true} />
             </main>
             <Footer />
         </>

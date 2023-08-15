@@ -6,8 +6,6 @@ import Header from '../Header/Header';
 import { CurrentUserContext } from '../../context/CurrentUserContext';
 
 function Profile({ onProfileUpdate, onSignOut }) {
-    const nameRef = React.useRef();
-    const emailRef = React.useRef();
 
     const currentUser = React.useContext(CurrentUserContext);
 
@@ -18,15 +16,12 @@ function Profile({ onProfileUpdate, onSignOut }) {
             name: currentUser.name,
             email: currentUser.email,
         })
-    }, []);
+    }, [currentUser]);
 
     function handleSubmit(e) {
         e.preventDefault();
-        onProfileUpdate(nameRef.current.value, emailRef.current.value);
+        onProfileUpdate(values.name, values.email);
     }
-
-    console.log(currentUser);
-
     return (
         <>
             <Header loggedIn={true} />
@@ -37,20 +32,20 @@ function Profile({ onProfileUpdate, onSignOut }) {
                         <div className="profile__data">
                             <div className="profile__info">
                                 <label className="profile__label">Имя</label>
-                                <input id="name" ref={nameRef} value={values.name} className="profile__input" name="name" type="text" onChange={handleChange} required pattern="^[a-zA-Zа-яА-Я\s\-]*$" />
+                                <input id="name" value={values.name} className="profile__input" name="name" type="text" onChange={handleChange} required pattern="^[a-zA-Zа-яА-Я\s\-]*$" />
                             </div>
                             <hr className="profile__line"></hr>
                             <div className="profile__info">
                                 <label className="profile__label">E-mail</label>
-                                <input id="email" ref={emailRef} value={values.email} className="profile__input" name="email" type="email" onChange={handleChange} required />
+                                <input id="email" value={values.email} className="profile__input" name="email" type="email" onChange={handleChange} required />
                             </div>
                         </div>
                         {!isValid &&
-                            <div className="profile__error">{Object.values(errors).map(err => <p className="profile__text">{err}</p>)}
+                            <div className="profile_error">{Object.values(errors).map(err => <p className="profile_text">{err}</p>)}
                             </div>
                         }
                         <div className="profile__button">
-                            <button className={"profile__save" + (isValid ? " profile__save_active" : "")} aria-label="Кнопка редактировать" type="submit" disabled={!isValid}>Редактировать</button>
+                            <button className={"profile_save" + (isValid ? " profile_save_active" : "")} aria-label="Кнопка редактировать" type="submit" disabled={!isValid}>Редактировать</button>
                             <Link to="/" className="profile__exit" aria-label="Кнопка выхода" onClick={onSignOut}>Выйти из аккаунта</Link>
                         </div>
                     </form>

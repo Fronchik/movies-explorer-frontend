@@ -1,12 +1,9 @@
 import React from 'react';
+import './App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { CurrentUserContext } from '../../context/CurrentUserContext';
 import { mainApi } from '../../utils/MainApi';
-// import { moviesApi } from '../../utils/MoviesApi';
-import './App.css';
-
 import ProtectedRoute from '../ProtectedRoute';
-// import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
@@ -27,7 +24,7 @@ function App() {
       .then((result) => {
         setLoggedIn(true);
         setTokenChecked(true);
-        // setMyEmail(result.email);
+        setCurrentUser(result);
       })
       .catch((err) => {
         console.log(err);
@@ -87,6 +84,7 @@ function App() {
   // выйти из аккаунта
   function handleSignOut() {
     localStorage.removeItem('token');
+    localStorage.removeItem('movies');
     setLoggedIn(false);
     setTokenChecked(false);
     navigate('/');
@@ -96,7 +94,7 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Main loggedIn={loggedIn} />} />
           <Route path="/movies" element={
             <ProtectedRoute
               element={Movies}
@@ -106,13 +104,13 @@ function App() {
           <Route path="/saved-movies" element={
             <ProtectedRoute
               element={SavedMovies}
-              loggedIn={loggedIn}
+              loggedIn={loggedIn || !tokenChecked}
             />}
           />
           <Route path="/profile" element={
             <ProtectedRoute
               element={Profile}
-              loggedIn={loggedIn}
+              loggedIn={loggedIn || !tokenChecked}
               onProfileUpdate={onProfileUpdate}
               onSignOut={handleSignOut}
             />}
