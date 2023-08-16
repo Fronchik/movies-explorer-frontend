@@ -25,15 +25,8 @@ class MainApi {
     }
 
     profileUpdate(name, email, token) {
-        return this._request(this.baseUrl + '/users/me', {
-            method: 'PATCH',
-            headers: {
-                "Authorization": `Bearer ${token}`,
-                ...this.headers
-            },
-            body: JSON.stringify({
-                name, email
-            })
+        return this._authRequest(this.baseUrl + '/users/me', 'PATCH', {
+            name, email
         })
     }
 
@@ -44,6 +37,28 @@ class MainApi {
                 "Authorization": `Bearer ${token}`,
                 ...this.headers
             }
+        })
+    }
+
+    movieAdd(movie) {
+        return this._authRequest(this.baseUrl + '/movies', 'POST', movie)
+    }
+
+    movieRemove(movieId) {
+        return this._authRequest(this.baseUrl + '/movies/' + movieId, 'DELETE')
+    }
+
+    moviesList(token) {
+        return this._authRequest(this.baseUrl + '/movies', 'GET')
+    }
+
+    _authRequest(url, method, body) {
+        const token = localStorage.getItem("token");
+        return this._request(url, {
+            method, headers: {
+                "Authorization": `Bearer ${token}`, ...this.headers
+            },
+            body: JSON.stringify(body)
         })
     }
 

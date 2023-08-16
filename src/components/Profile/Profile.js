@@ -45,7 +45,7 @@ function Profile({ onProfileUpdate, onSignOut }) {
                             </div>
                         }
                         <div className="profile__button">
-                            <button className={"profile_save" + (isValid ? " profile_save_active" : "")} aria-label="Кнопка редактировать" type="submit" disabled={!isValid}>Редактировать</button>
+                            <button className={"profile__save" + (isValid ? " profile__save_active" : "")} aria-label="Кнопка редактировать" type="submit" disabled={!isValid}>Редактировать</button>
                             <Link to="/" className="profile__exit" aria-label="Кнопка выхода" onClick={onSignOut}>Выйти из аккаунта</Link>
                         </div>
                     </form>

@@ -6,20 +6,50 @@ import Preloader from '../Preloader/Preloader';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import { moviesApi } from '../../utils/MoviesApi';
+import { beatfilmToMovie, moviesFilter } from "../../utils/movies";
+import { mainApi } from "../../utils/MainApi";
 
 function Movies() {
     const [cardList, setCardList] = React.useState([]);
+    const [savedMovies, setSavedMovies] = React.useState([]);
     const [loading, setLoading] = React.useState(false);
     const [query, setQuery] = React.useState('');
     const [shortOnly, setShortOnly] = React.useState(false);
     const [error, setError] = React.useState(false);
+
+    React.useEffect(() => {
+        loadSavedMovies();
+    }, []);
+
+    React.useEffect(() => {
+        loadFromStorage();
+    }, [savedMovies]);
+
+    const loadSavedMovies = () => {
+        mainApi.moviesList().then((result) => {
+            setSavedMovies(result);
+        }).catch((err) => {
+            setError(true);
+            console.log(err);
+        })
+    }
+
+    const moviesUpdateWithID = (movies) => {
+        return movies.map((movie) => {
+            const savedMovie = savedMovies.find((savedMovie) => savedMovie.movieId === movie.movieId);
+            if (savedMovie) {
+                movie._id = savedMovie._id;
+            }
+            return movie;
+        })
+    }
 
     const loadFromStorage = () => {
         const movies = localStorage.getItem("movies");
         if (movies) {
             const moviesData = JSON.parse(movies);
             setQuery(moviesData.query);
-            setCardList(moviesData.cardList);
+            setCardList(moviesUpdateWithID(moviesData.cardList));
             setShortOnly(moviesData.shortOnly);
         }
     }
@@ -34,34 +64,52 @@ function Movies() {
             JSON.stringify(moviesData));
     }
 
-    React.useEffect(() => {
-        loadFromStorage();
-    }, []);
-
     const handleSearchSubmit = (q, short) => {
         setLoading(true);
         moviesApi.movies()
             .then((result) => {
-                const queryLowerCase = q.toLowerCase();
-                // фильтруем фильмы по запросу
-                result = result.filter(movie => {
-                    const condition =
-                        movie.nameRU.toLowerCase().includes(queryLowerCase) ||
-                        movie.nameEN.toLowerCase().includes(queryLowerCase);
-                    if (!short) {
-                        return condition;
-                    }
-                    return condition && movie.duration <= 40
-                });
+                const filteredMovies = moviesFilter(result, q, short);
+                const formattedMovies = filteredMovies.map((bfMovie) => beatfilmToMovie(bfMovie));
+                setCardList(moviesUpdateWithID(formattedMovies));
                 setLoading(false);
-                setCardList(result);
-                saveToStorage(q, result, short);
+                saveToStorage(q, formattedMovies, short);
             })
             .catch((err) => {
                 setLoading(false);
                 setError(true);
                 console.log(err);
             });
+    }
+
+
+    const handleMovieLike = (movie) => {
+        mainApi.movieAdd(movie).then((result) => {
+            const updatedCardList = cardList.map((card) => {
+                if (card.movieId === movie.movieId) {
+                    return result;
+                }
+                return card;
+            });
+            setCardList(updatedCardList);
+        }).catch((err) => {
+            setError(true);
+            console.log(err);
+        })
+    }
+
+    const handleMovieDislike = (id) => {
+        mainApi.movieRemove(id).then((result) => {
+            // обновляем список фильмов
+            const updatedCardList = cardList.map((card) => {
+                if (card._id === id) {
+                    delete card._id;
+                }
+                return card;
+            });
+            setCardList(updatedCardList);
+        }).catch((err) => {
+            console.log(err);
+        })
     }
 
     return (
@@ -71,11 +119,19 @@ function Movies() {
                 <SearchForm
                     query={query}
                     onQueryChange={setQuery}
-                    onShortOnlyChange={() => { setShortOnly(!shortOnly); handleSearchSubmit(query, !shortOnly) }}
+                    onShortOnlyChange={() => {
+                        handleSearchSubmit(query, !shortOnly);
+                        setShortOnly(!shortOnly);
+                    }}
                     shortOnly={shortOnly}
                     onSubmit={() => handleSearchSubmit(query, shortOnly)} />
                 {loading ?
-                    <Preloader /> : <MoviesCardList cards={cardList} error={error} isFavourites={false} />
+                    <Preloader /> : <MoviesCardList
+                        cards={cardList}
+                        error={error}
+                        onLike={handleMovieLike}
+                        onDislike={handleMovieDislike}
+                        isFavourites={false} />
                 }
             </main>
             <Footer />
