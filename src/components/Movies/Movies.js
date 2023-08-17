@@ -70,9 +70,9 @@ function Movies() {
             .then((result) => {
                 const filteredMovies = moviesFilter(result, q, short);
                 const formattedMovies = filteredMovies.map((bfMovie) => beatfilmToMovie(bfMovie));
+                saveToStorage(q, formattedMovies, short);
                 setCardList(moviesUpdateWithID(formattedMovies));
                 setLoading(false);
-                saveToStorage(q, formattedMovies, short);
             })
             .catch((err) => {
                 setLoading(false);
@@ -84,6 +84,7 @@ function Movies() {
 
     const handleMovieLike = (movie) => {
         mainApi.movieAdd(movie).then((result) => {
+            // обновляем список фильмов
             const updatedCardList = cardList.map((card) => {
                 if (card.movieId === movie.movieId) {
                     return result;
@@ -91,6 +92,8 @@ function Movies() {
                 return card;
             });
             setCardList(updatedCardList);
+            // обновляем список сохраненных фильмов
+            setSavedMovies([...savedMovies, result]);
         }).catch((err) => {
             setError(true);
             console.log(err);
@@ -107,6 +110,14 @@ function Movies() {
                 return card;
             });
             setCardList(updatedCardList);
+            // обновляем список сохраненных фильмов
+            const updatedSavedMovies = savedMovies.filter((card) => {
+                if (card._id !== id) {
+                    return card;
+                }
+                return null;
+            })
+            setSavedMovies(updatedSavedMovies);
         }).catch((err) => {
             console.log(err);
         })

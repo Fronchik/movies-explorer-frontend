@@ -26,7 +26,9 @@ function MoviesCard({ movie, onLike, onDislike, isFavourites }) {
                         onClick={() => { liked ? onDislike(movie._id) : onLike(movie) }} />
                 }
             </div>
-            <img src={movie.image} alt={movie.nameRU} className="card__image" />
+            <a href={movie.trailerLink} target="_blank" rel="noopener noreferrer" className="card__link" >
+                <img src={movie.image} alt={movie.nameRU} className="card__image" />
+            </a>
         </li>
     );
 }

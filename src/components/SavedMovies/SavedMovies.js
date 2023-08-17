@@ -45,6 +45,7 @@ function SavedMovies() {
                 if (card._id !== id) {
                     return card;
                 }
+                return null;
             });
             setSavedMovies(updatedSavedMovies);
             // обновляем список отображаемых фильмов
@@ -52,6 +53,7 @@ function SavedMovies() {
                 if (card._id !== id) {
                     return card;
                 }
+                return null;
             });
             setCardList(updatedCardList);
         }).catch((err) => {

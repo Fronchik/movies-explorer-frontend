@@ -19,3 +19,9 @@ https://disk.yandex.ru/d/6B7kqzpevixJdQ
 `npm run start` — запускает сервер
 
 ссылка на GitHub: https://github.com/Fronchik/movies-explorer-frontend.git
+
+IP 158.160.13.59
+
+Frontend https://diplom.nomoredomains.xyz/
+
+Backend https://api.diplom.nomoredomains.xyz/

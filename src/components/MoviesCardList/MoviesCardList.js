@@ -1,7 +1,6 @@
 import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import { mainApi } from "../../utils/MainApi";
 
 const cardsPerPage = 5;
 
