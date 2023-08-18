@@ -20,6 +20,8 @@ https://disk.yandex.ru/d/6B7kqzpevixJdQ
 
 ссылка на GitHub: https://github.com/Fronchik/movies-explorer-frontend.git
 
+ссылка на пул реквест:https://github.com/Fronchik/movies-explorer-frontend/pull/2
+
 IP 158.160.13.59
 
 Frontend https://diplom.nomoredomains.xyz/

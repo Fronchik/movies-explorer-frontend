@@ -82,4 +82,3 @@ export const mainApi = new MainApi({
         'Content-Type': 'application/json'
     }
 })
-// export const mainApi = new MainApi('https://api.diplom.nomoredomains.xyz');
