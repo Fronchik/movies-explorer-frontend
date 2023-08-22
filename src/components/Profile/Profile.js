@@ -9,6 +9,8 @@ function Profile({ onProfileUpdate, onSignOut }) {
 
     const currentUser = React.useContext(CurrentUserContext);
 
+    const [saved, setSaved] = React.useState(false);
+
     const { handleChange, errors, values, init, isValid } = useFormWithValidation();
 
     React.useEffect(() => {
@@ -21,7 +23,9 @@ function Profile({ onProfileUpdate, onSignOut }) {
     function handleSubmit(e) {
         e.preventDefault();
         onProfileUpdate(values.name, values.email);
+        setSaved(true);
     }
+
     return (
         <>
             <Header loggedIn={true} />
@@ -32,20 +36,43 @@ function Profile({ onProfileUpdate, onSignOut }) {
                         <div className="profile__data">
                             <div className="profile__info">
                                 <label className="profile__label">Имя</label>
-                                <input id="name" value={values.name} className="profile__input" name="name" type="text" onChange={handleChange} required pattern="^[a-zA-Zа-яА-Я\s\-]*$" />
+                                <input
+                                    id="name"
+                                    value={values.name}
+                                    className="profile__input"
+                                    name="name"
+                                    type="text"
+                                    onChange={handleChange}
+                                    required
+                                    pattern="^[a-zA-Zа-яА-Я\s\-]*$" />
                             </div>
                             <hr className="profile__line"></hr>
                             <div className="profile__info">
                                 <label className="profile__label">E-mail</label>
-                                <input id="email" value={values.email} className="profile__input" name="email" type="email" onChange={handleChange} required />
+                                <input
+                                    id="email"
+                                    value={values.email}
+                                    className="profile__input"
+                                    name="email"
+                                    type="email"
+                                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                                    onChange={handleChange}
+                                    required />
                             </div>
                         </div>
                         {!isValid &&
                             <div className="profile_error">{Object.values(errors).map(err => <p className="profile_text">{err}</p>)}
                             </div>
                         }
+
                         <div className="profile__button">
-                            <button className={"profile__save" + (isValid ? " profile__save_active" : "")} aria-label="Кнопка редактировать" type="submit" disabled={!isValid}>Редактировать</button>
+                            {saved && <p className="profile__success">Данные успешно сохранены!</p>}
+                            <button
+                                className={"profile__save" + (isValid ? " profile__save_active" : "")}
+                                aria-label="Кнопка редактировать"
+                                type="submit"
+                                disabled={!isValid || (values.name === currentUser.name && values.email === currentUser.email)}>Редактировать
+                            </button>
                             <Link to="/" className="profile__exit" aria-label="Кнопка выхода" onClick={onSignOut}>Выйти из аккаунта</Link>
                         </div>
                     </form>

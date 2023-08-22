@@ -18,13 +18,15 @@ function Login({ onLogin }) {
     return (
         <section className="popup">
             <div className="popup__content">
-                <img src={headerLogo} alt="Логотип" className="popup__logo" />
+                <Link to="/" aria-label="Логотип">
+                    <img src={headerLogo} alt="Логотип" className="popup__logo" />
+                </Link>
                 <h2 className="popup__title">Рады видеть!</h2>
                 <form id="login-form" className="popup__form" name="login-form" onSubmit={handleSubmit} noValidate>
                     <div className="popup__info">
                         <div className="popup__list">
                             <label className="popup__label">E-mail</label>
-                            <input id="email" ref={emailRef} className="popup__input" name="login" type="email" onChange={handleChange} required />
+                            <input id="email" ref={emailRef} className="popup__input" name="login" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" onChange={handleChange} required />
                             {errors.login && <span className="popup__error">{errors.login}</span>}
                         </div>
                         <div className="popup__list">

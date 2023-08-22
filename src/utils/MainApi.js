@@ -77,7 +77,8 @@ class MainApi {
 }
 
 export const mainApi = new MainApi({
-    baseUrl: 'https://api.diplom.nomoredomains.xyz',
+    baseUrl: 'http://localhost:3000',
+    // baseUrl: 'https://api.diplom.nomoredomains.xyz',
     headers: {
         'Content-Type': 'application/json'
     }

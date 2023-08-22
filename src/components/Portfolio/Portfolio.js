@@ -1,6 +1,6 @@
-import portfolioImg from '../../images/strelka.svg';
 import React from 'react';
 import './Portfolio.css';
+import portfolioImg from '../../images/strelka.svg';
 
 function Portfolio() {
     return (

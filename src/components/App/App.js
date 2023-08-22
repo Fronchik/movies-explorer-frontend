@@ -47,7 +47,11 @@ function App() {
   // регистрация пользователя
   function handleRegister(name, email, password) {
     mainApi.register(name, email, password)
-      .then(() => {
+      .then((result) => {
+        localStorage.setItem("token", result.token);
+        setLoggedIn(true);
+        setCurrentUser(result.data);
+        setTokenChecked(true);
         navigate("/movies");
       })
       .catch((err) => {
@@ -115,9 +119,20 @@ function App() {
               onSignOut={handleSignOut}
             />}
           />
-          <Route path="/error" element={<Error />} />
-          <Route path="/signup" element={<Register onRegister={handleRegister} />} />
-          <Route path="/signin" element={<Login onLogin={handleLogin} />} />
+          <Route path="/signup" element={
+            <ProtectedRoute
+              element={Register}
+              onRegister={handleRegister}
+              loggedIn={!loggedIn}
+            />}
+          />
+          <Route path="/signin" element={
+            <ProtectedRoute
+              element={Login}
+              onLogin={handleLogin}
+              loggedIn={!loggedIn} />}
+          />
+          <Route path="*" element={<Error />} />
         </Routes>
       </div>
     </CurrentUserContext.Provider>

@@ -77,7 +77,13 @@ function SavedMovies() {
                     onSubmit={() => handleSearchSubmit(query, shortOnly)}
                 />
                 {loading ?
-                    <Preloader /> : <MoviesCardList cards={cardList} error={error} onDislike={handleMovieDislike} isFavourites={true} />
+                    <Preloader /> :
+                    <MoviesCardList
+                        cards={cardList}
+                        error={error}
+                        query={query}
+                        onDislike={handleMovieDislike}
+                        isFavourites={true} />
                 }
             </main>
             <Footer />

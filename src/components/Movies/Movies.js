@@ -142,6 +142,7 @@ function Movies() {
                         error={error}
                         onLike={handleMovieLike}
                         onDislike={handleMovieDislike}
+                        query={query}
                         isFavourites={false} />
                 }
             </main>

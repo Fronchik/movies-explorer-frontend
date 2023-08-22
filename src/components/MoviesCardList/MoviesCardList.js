@@ -4,7 +4,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 
 const cardsPerPage = 5;
 
-function MoviesCardList({ cards, error, onLike, onDislike, isFavourites }) {
+function MoviesCardList({ cards, error, onLike, onDislike, query, isFavourites }) {
     const [numberOfCardsToDisplay, setNumberOfCardsToDisplay] = React.useState(cardsPerPage);
     const handleMoreClick = () => {
         setNumberOfCardsToDisplay(numberOfCardsToDisplay + cardsPerPage);
@@ -18,7 +18,7 @@ function MoviesCardList({ cards, error, onLike, onDislike, isFavourites }) {
                     <p className="movies__error">Во время запроса произошла ошибка.
                         Возможно проблема с соединением или сервер недоступен.
                         Подождите немного и попробуйте еще раз</p> :
-                    cards.length === 0 ? <li className="movies__nothing">Ничего не найдено</li> :
+                    cards.length === 0 && query ? <li className="movies__nothing">Ничего не найдено</li> :
                         cardsToDisplay.map(card =>
                             <MoviesCard key={card.movieId}
                                 movie={card}
