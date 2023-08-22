@@ -2,7 +2,17 @@ import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-const cardsPerPage = 5;
+let cardsPerPage = 7;
+
+function adjustCards() {
+    let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+    if (width <= 720) {
+        cardsPerPage = 5;
+    }
+}
+
+adjustCards();
 
 function MoviesCardList({ cards, error, onLike, onDislike, query, isFavourites }) {
     const [numberOfCardsToDisplay, setNumberOfCardsToDisplay] = React.useState(cardsPerPage);

@@ -16,10 +16,8 @@ function Movies() {
     const [query, setQuery] = React.useState('');
     const [shortOnly, setShortOnly] = React.useState(false);
     const [error, setError] = React.useState(false);
+    const [moviesFromServer, setMoviesFromServer] = React.useState([]);
 
-    React.useEffect(() => {
-        loadSavedMovies();
-    }, []);
 
     React.useEffect(() => {
         loadFromStorage();
@@ -35,8 +33,13 @@ function Movies() {
     }
 
     const moviesUpdateWithID = (movies) => {
+        if (savedMovies.length === 0) {
+            loadSavedMovies();
+        }
         return movies.map((movie) => {
             const savedMovie = savedMovies.find((savedMovie) => savedMovie.movieId === movie.movieId);
+            // клонируем объект, чтобы не менять исходный
+            movie = Object.assign({}, movie);
             if (savedMovie) {
                 movie._id = savedMovie._id;
             }
@@ -54,6 +57,20 @@ function Movies() {
         }
     }
 
+    const loadFromServer = (q, short) => {
+        moviesApi.movies()
+            .then((result) => {
+                const formattedMovies = result.map((bfMovie) => beatfilmToMovie(bfMovie));
+                setMoviesFromServer(formattedMovies);
+                filterAndSaveMovies(formattedMovies, q, short);
+                setLoading(false);
+            })
+            .catch((err) => {
+                setError(true);
+                console.log(err);
+            });
+    }
+
     const saveToStorage = (newQuery, newCardList, newShortOnly) => {
         const moviesData = {
             query: newQuery,
@@ -66,19 +83,19 @@ function Movies() {
 
     const handleSearchSubmit = (q, short) => {
         setLoading(true);
-        moviesApi.movies()
-            .then((result) => {
-                const filteredMovies = moviesFilter(result, q, short);
-                const formattedMovies = filteredMovies.map((bfMovie) => beatfilmToMovie(bfMovie));
-                saveToStorage(q, formattedMovies, short);
-                setCardList(moviesUpdateWithID(formattedMovies));
-                setLoading(false);
-            })
-            .catch((err) => {
-                setLoading(false);
-                setError(true);
-                console.log(err);
-            });
+        // если фильмы еще не загружены, загружаем их
+        if (moviesFromServer.length === 0) {
+            loadFromServer(q, short);
+            return;
+        }
+        filterAndSaveMovies(moviesFromServer, q, short);
+        setLoading(false);
+    }
+
+    const filterAndSaveMovies = (movies, q, short) => {
+        const filteredMovies = moviesFilter(movies, q, short);
+        saveToStorage(q, filteredMovies, short);
+        setCardList(moviesUpdateWithID(filteredMovies));
     }
 
 

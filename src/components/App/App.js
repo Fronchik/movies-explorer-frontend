@@ -65,7 +65,6 @@ function App() {
         localStorage.setItem("token", result.token);
         setLoggedIn(true);
         setCurrentUser(result.data);
-        // setMyEmail(email);
         setTokenChecked(true);
         navigate("/movies");
       })
