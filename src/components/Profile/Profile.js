@@ -26,6 +26,12 @@ function Profile({ onProfileUpdate, onSignOut }) {
         setSaved(true);
     }
 
+    function buttonActive() {
+        if (values.name === currentUser.name && values.email === currentUser.email) {
+            return false;
+        }
+        return isValid;
+    }
     return (
         <>
             <Header loggedIn={true} />
@@ -44,7 +50,8 @@ function Profile({ onProfileUpdate, onSignOut }) {
                                     type="text"
                                     onChange={handleChange}
                                     required
-                                    pattern="^[a-zA-Zа-яА-Я\s\-]*$" />
+                                    pattern="^[a-zA-Zа-яА-Я\s\-]*$"
+                                    minLength="2" />
                             </div>
                             <hr className="profile__line"></hr>
                             <div className="profile__info">
@@ -55,23 +62,23 @@ function Profile({ onProfileUpdate, onSignOut }) {
                                     className="profile__input"
                                     name="email"
                                     type="email"
-                                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                                    pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
                                     onChange={handleChange}
                                     required />
                             </div>
                         </div>
                         {!isValid &&
-                            <div className="profile_error">{Object.values(errors).map(err => <p className="profile_text">{err}</p>)}
+                            <div className="profile__error">{Object.values(errors).map(err => <p className="profile__text">{err}</p>)}
                             </div>
                         }
 
                         <div className="profile__button">
                             {saved && <p className="profile__success">Данные успешно сохранены!</p>}
                             <button
-                                className={"profile__save" + (isValid ? " profile__save_active" : "")}
+                                className={"profile__save" + (buttonActive() ? " profile__save_active" : "")}
                                 aria-label="Кнопка редактировать"
                                 type="submit"
-                                disabled={!isValid || (values.name === currentUser.name && values.email === currentUser.email)}>Редактировать
+                                disabled={!buttonActive()}>Редактировать
                             </button>
                             <Link to="/" className="profile__exit" aria-label="Кнопка выхода" onClick={onSignOut}>Выйти из аккаунта</Link>
                         </div>

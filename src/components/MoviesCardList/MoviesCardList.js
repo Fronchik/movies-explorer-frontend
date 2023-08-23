@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-let cardsPerPage = 7;
-
-function adjustCards() {
-    let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-
-    if (width <= 720) {
-        cardsPerPage = 5;
-    }
-}
-
-adjustCards();
 
 function MoviesCardList({ cards, error, onLike, onDislike, query, isFavourites }) {
-    const [numberOfCardsToDisplay, setNumberOfCardsToDisplay] = React.useState(cardsPerPage);
+
+    const [cardsPerPage, setCardsPerPage] = React.useState(0);
+    const [numberOfCardsToDisplay, setNumberOfCardsToDisplay] = React.useState(0);
+
+    useEffect(() => {
+        adjustCards();
+        if (numberOfCardsToDisplay === 0) {
+            setNumberOfCardsToDisplay(cardsPerPage);
+        }
+        // обновляем количество карточек при изменении ширины экрана
+        window.addEventListener('resize', adjustCards);
+        return () => {
+            window.removeEventListener('resize', adjustCards);
+        }
+    });
+
+    const adjustCards = () => {
+        let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        if (width <= 480) {
+            setCardsPerPage(5);
+        } else {
+            setCardsPerPage(7);
+        }
+    }
+
+
     const handleMoreClick = () => {
         setNumberOfCardsToDisplay(numberOfCardsToDisplay + cardsPerPage);
     }

@@ -47,12 +47,8 @@ function App() {
   // регистрация пользователя
   function handleRegister(name, email, password) {
     mainApi.register(name, email, password)
-      .then((result) => {
-        localStorage.setItem("token", result.token);
-        setLoggedIn(true);
-        setCurrentUser(result.data);
-        setTokenChecked(true);
-        navigate("/movies");
+      .then(() => {
+        handleLogin(email, password);
       })
       .catch((err) => {
         console.log(err);

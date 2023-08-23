@@ -27,12 +27,12 @@ function Register({ onRegister }) {
                     <div className="popup__info">
                         <div className="popup__list">
                             <label className="popup__label">Имя</label>
-                            <input id="name" ref={nameRef} className="popup__input" name="name" type="text" onChange={handleChange} required pattern="^[a-zA-Zа-яА-Я\s\-]*$" />
+                            <input id="name" ref={nameRef} className="popup__input" name="name" type="text" onChange={handleChange} required pattern="^[a-zA-Zа-яА-Я\s\-]*$" minLength="2" />
                             {errors.name && <span className="popup__error">{errors.name}</span>}
                         </div>
                         <div className="popup__list">
                             <label className="popup__label">E-mail</label>
-                            <input id="email" ref={emailRef} className="popup__input" name="login" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" onChange={handleChange} required />
+                            <input id="email" ref={emailRef} className="popup__input" name="login" type="text" onChange={handleChange} required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" />
                             {errors.login && <span className="popup__error">{errors.login}</span>}
                         </div>
                         <div className="popup__list">

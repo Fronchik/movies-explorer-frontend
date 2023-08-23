@@ -128,12 +128,11 @@
     line-height: 16px;
   
     background-color: #202020;
-  
-    cursor: pointer;
 }
 
 .profile__save_active {
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .profile__save_active:hover {

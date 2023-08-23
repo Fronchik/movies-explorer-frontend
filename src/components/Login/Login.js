@@ -26,7 +26,7 @@ function Login({ onLogin }) {
                     <div className="popup__info">
                         <div className="popup__list">
                             <label className="popup__label">E-mail</label>
-                            <input id="email" ref={emailRef} className="popup__input" name="login" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" onChange={handleChange} required />
+                            <input id="email" ref={emailRef} className="popup__input" name="login" type="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" onChange={handleChange} required />
                             {errors.login && <span className="popup__error">{errors.login}</span>}
                         </div>
                         <div className="popup__list">
