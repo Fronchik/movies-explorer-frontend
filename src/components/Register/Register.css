@@ -40,6 +40,10 @@
     justify-content: space-between;
 }
 
+.popup__list {
+    height: 69px;
+}
+
 .popup__label {
     display: block; 
     max-width: 396px;
@@ -55,7 +59,7 @@
 .popup__input {
     min-height: 17px;
     width: 100%;
-    margin-bottom: 24px;
+    margin: 0;
     padding: 5px 0 10px;
 
     font-weight: 400;
@@ -81,7 +85,6 @@
     font-size: 14px;
     line-height: 17px;
 
-    color: #EE3465;
     background-color: #202020;
     border: none;
     border-bottom: 1px #424242 solid;
@@ -89,6 +92,21 @@
 
 .popup__input_password:focus {
     outline: none;
+}
+
+.popup__error {
+    max-width: 390px;
+    min-height: 12px;
+    margin: 0;
+    padding-top: 6px;
+
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 10px;
+    color: #EE3465;
+
+    display: block;
+    text-align: left;
 }
 
 .popup__save {
@@ -100,17 +118,22 @@
     border: none;
     border-radius: 3px;
   
-    color: #FFFFFF;
+    color: #C2C2C2;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
   
-    background-color: #4285F4;
+    background-color: #F8F8F8;
   
     cursor: pointer;
 }
 
-.popup__save:hover {
+.popup__save_active {
+    color: #FFFFFF;
+    background-color: #4285F4;
+}
+
+.popup__save_active :hover {
     opacity: 80%;
     transition: 1s;
 }

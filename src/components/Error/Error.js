@@ -11,7 +11,7 @@ function Error() {
                     <p className="error__text">Страница не найдена</p>
                 </div>
                 <div className="error__link">
-                    <Link to="/" className="error__back" aria-label="Кнопка назад" type="submit">Назад</Link>
+                    <Link to={-1} className="error__back" aria-label="Кнопка назад" type="submit">Назад</Link>
                 </div>
             </div>
         </section>

@@ -6,7 +6,7 @@ import headerLogo from '../../images/logo.svg';
 import profile from '../../images/profile.svg';
 import navigationIcon from '../../images/navigationIcon.svg'
 
-function Header({ email, loggedIn, onSignOut }) {
+function Header({ loggedIn }) {
     const [isMenuOpened, setMenuOpened] = React.useState(false);
 
     return (
