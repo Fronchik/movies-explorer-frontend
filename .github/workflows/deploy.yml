@@ -1,0 +1,52 @@
+name: "Deploy"
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build React app
+        run: |
+          npm ci
+          npm run build
+        env:
+          REACT_APP_API_URL: https://api.movies.fronchik.com
+
+      - name: Remove old build directory
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            rm -rf /home/${{ secrets.USER }}/fronchik/movies.fronchik.com/build
+            mkdir -p /home/${{ secrets.USER }}/fronchik/movies.fronchik.com/build
+
+      - name: Deploy application
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "build/"
+          target: "/home/${{ secrets.USER }}/fronchik/movies.fronchik.com"
+
+      - name: Restart container
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /home/${{ secrets.USER }}/fronchik
+            docker-compose restart movies
