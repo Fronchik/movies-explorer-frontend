@@ -77,8 +77,8 @@ class MainApi {
 }
 
 export const mainApi = new MainApi({
-    baseUrl: 'https://api.diplom.nomoredomains.xyz',
+    baseUrl: process.env.REACT_APP_API_URL || 'https://api.movies.fronchik.com',
     headers: {
-        'Content-Type': 'application/json'
+      'Content-Type': 'application/json'
     }
 })
